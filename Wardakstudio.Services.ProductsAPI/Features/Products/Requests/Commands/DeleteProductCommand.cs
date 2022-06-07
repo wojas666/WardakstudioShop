@@ -3,8 +3,8 @@ using Wardakstudio.Services.ProductsAPI.Models.Dtos.Product;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.Products.Requests.Commands
 {
-    public class CreateProductRequest : IRequest<int>
+    public class DeleteProductCommand : IRequest
     {
-        public CreateProductDto ProductDto { get; set; }
+        public ProductDto Product { get; set; }
     }
 }

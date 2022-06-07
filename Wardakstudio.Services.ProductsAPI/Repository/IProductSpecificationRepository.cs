@@ -5,7 +5,7 @@ namespace Wardakstudio.Services.ProductsAPI.Repository
 {
     public interface IProductSpecificationRepository : IGenericRepository<ProductSpecification>
     {
-        Task<List<ProductSpecification>> GetProductSpecificationsListForProduct(int productId);
+        Task<List<ProductSpecification>> GetProductSpecificationsList(int productId);
 
     }
 }

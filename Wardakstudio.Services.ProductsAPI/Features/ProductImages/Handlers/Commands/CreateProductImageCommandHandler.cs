@@ -6,18 +6,18 @@ using Wardakstudio.Services.ProductsAPI.Repository;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.ProductImages.Handlers.Commands
 {
-    public class CreateProductImageRequestHandler : IRequestHandler<CreateProductImageRequest, int>
+    public class CreateProductImageCommandHandler : IRequestHandler<CreateProductImageCommand, int>
     {
         private readonly IMapper _mapper;
         private readonly IProductImageRepository _repository;
 
-        public CreateProductImageRequestHandler(IMapper mapper, IProductImageRepository repository)
+        public CreateProductImageCommandHandler(IMapper mapper, IProductImageRepository repository)
         {
             _mapper = mapper;
             _repository = repository;   
         }
 
-        public async Task<int> Handle(CreateProductImageRequest request, CancellationToken cancellation)
+        public async Task<int> Handle(CreateProductImageCommand request, CancellationToken cancellation)
         {
             var newProductImage = _mapper.Map<ProductImage>(request.ProductImageDto);
             newProductImage = await _repository.Add(newProductImage);

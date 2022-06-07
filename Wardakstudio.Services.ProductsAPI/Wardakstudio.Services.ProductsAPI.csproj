@@ -22,14 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\ProductRatings\Handlers\Queries\" />
-    <Folder Include="Features\ProductRatings\Requests\Queries\" />
     <Folder Include="Features\ProductSpecificationCategories\Handles\Queries\" />
     <Folder Include="Features\ProductSpecificationCategories\Requests\Queries\" />
     <Folder Include="Features\ProductSpecificationDetails\Handles\Queries\" />
     <Folder Include="Features\ProductSpecificationDetails\Requests\Queries\" />
-    <Folder Include="Features\ProductSpecifications\Handles\Queries\" />
-    <Folder Include="Features\ProductSpecifications\Requests\Queries\" />
   </ItemGroup>
 
 </Project>

@@ -6,18 +6,18 @@ using Wardakstudio.Services.ProductsAPI.Repository;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Commands
 {
-    public class CreateProductRequestHandler : IRequestHandler<CreateProductRequest, int>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
     {
         private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
 
-        public CreateProductRequestHandler(IMapper mapper, IProductRepository repository)
+        public CreateProductCommandHandler(IMapper mapper, IProductRepository repository)
         {
             _mapper = mapper;
             _productRepository = repository;
         }
 
-        public async Task<int> Handle(CreateProductRequest request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             var newProduct = _mapper.Map<Product>(request.ProductDto);
 

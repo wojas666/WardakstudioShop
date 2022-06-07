@@ -6,18 +6,18 @@ using Wardakstudio.Services.ProductsAPI.Repository;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.ProductCategories.Handlers.Commands
 {
-    public class CreateProductCategoryRequestHanler : IRequestHandler<CreateProductCategoryRequest, int>
+    public class CreateProductCategoryCommandHandler : IRequestHandler<CreateProductCategoryCommand, int>
     {
         private readonly IMapper _mapper;
         private readonly IProductCategoryRepository _repository;
 
-        public CreateProductCategoryRequestHanler(IMapper mapper, IProductCategoryRepository repository)
+        public CreateProductCategoryCommandHandler(IMapper mapper, IProductCategoryRepository repository)
         {
             _mapper = mapper;
             _repository = repository;
         }
 
-        public async Task<int> Handle (CreateProductCategoryRequest request, CancellationToken cancel)
+        public async Task<int> Handle (CreateProductCategoryCommand request, CancellationToken cancel)
         {
             var newCategory = _mapper.Map<ProductCategory>(request.ProductCategoryDto);
 

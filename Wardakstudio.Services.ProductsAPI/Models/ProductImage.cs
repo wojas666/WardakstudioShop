@@ -13,5 +13,7 @@ namespace Wardakstudio.Services.ProductsAPI.Models
         public Product Product { get; set; }
 
         public bool IsBase { get; set; }
+
+        public bool IsPublish { get; set; }
     }
 }

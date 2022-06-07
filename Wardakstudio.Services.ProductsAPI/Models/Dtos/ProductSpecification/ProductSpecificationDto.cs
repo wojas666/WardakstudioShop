@@ -9,7 +9,11 @@ namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.ProductSpecification
     {
         public ProductDto Product { get; set; }
 
+        public int ProductSpecificationCategoryId { get; set; }
+
         public ProductSpecificationCategoryDto ProductSpecificationCategory { get; set; }
+
+        public int ProductSpecificationDetailsId { get; set; }
 
         public ProductSpecificationDetailDto ProductSpecificationDetails { get; set; }
     }

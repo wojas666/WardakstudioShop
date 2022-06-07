@@ -6,18 +6,18 @@ using Wardakstudio.Services.ProductsAPI.Repository;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.ProductSpecificationDetails.Handles.Commands
 {
-    public class CreateProductSpecificationDetailRequestHandler : IRequestHandler<CreateProductSpecificationDetailRequest, int>
+    public class CreateProductSpecificationDetailCommandHandler : IRequestHandler<CreateProductSpecificationDetailCommand, int>
     {
         private readonly IMapper _mapper;
         private readonly IProductSpecificationDetailRepository _repository;
 
-        public CreateProductSpecificationDetailRequestHandler(IMapper mapper, IProductSpecificationDetailRepository repository)
+        public CreateProductSpecificationDetailCommandHandler(IMapper mapper, IProductSpecificationDetailRepository repository)
         {
             _mapper = mapper;
             _repository = repository;
         }
 
-        public async Task<int> Handle(CreateProductSpecificationDetailRequest request, CancellationToken cancellation)
+        public async Task<int> Handle(CreateProductSpecificationDetailCommand request, CancellationToken cancellation)
         {
             var newProductSpecificationDetail = _mapper.Map<ProductSpecificationDetail>(request.ProductSpecificationDetailDto);
             newProductSpecificationDetail = await _repository.Add(newProductSpecificationDetail);
