@@ -6,7 +6,7 @@ using Wardakstudio.Services.ProductsAPI.Models.Dtos.ProductSpecification;
 
 namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.Product
 {
-    public class ProductDto : BaseDto
+    public class ProductDto : BaseDto, IProductDto
     {
         public string Name { get; set; }
 
@@ -16,7 +16,11 @@ namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.Product
 
         public int AvailableQuantity { get; set; }
 
+        public int ProductCategoryId { get; set; }
+
         public ProductCategoryDto ProductCategory { get; set; }
+
+        public int ProducerId { get; set; }
 
         public ProducerDto Producer { get; set; }
 

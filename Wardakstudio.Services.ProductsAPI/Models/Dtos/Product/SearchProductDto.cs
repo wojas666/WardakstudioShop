@@ -12,11 +12,9 @@ namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.Product
 
         public decimal? MaxPrice { get; set; }
 
-        public ProductCategoryDto? ProductCategory { get; set; }
+        public ICollection<int>? ProductCategoryIds { get; set; }
 
-        public ICollection<ProducerDto>? Producer { get; set; }
-
-        public ICollection<ProductSpecificationDto>? ProductSpecifications { get; set; }
+        public ICollection<int>? ProducerIds { get; set; }
 
         public bool IsAvailable { get; set; } = false;
 

@@ -16,5 +16,7 @@ namespace Wardakstudio.Services.ProductsAPI.Repository
 
         Task<bool> DeleteById(int id);
 
+        Task<bool> Exists(int id);
+
     }
 }
