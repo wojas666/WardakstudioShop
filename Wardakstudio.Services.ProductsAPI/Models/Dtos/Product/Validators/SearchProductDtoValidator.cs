@@ -7,11 +7,9 @@ namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.Product.Validators
     {
         private readonly IProducerRepository _producerRepository;
         private readonly IProductCategoryRepository _productCategoryRepository;
-        private readonly IProductSpecificationRepository _productSpecificationRepository;
 
         public SearchProductDtoValidator(IProducerRepository producerRepository, 
-            IProductCategoryRepository productCategoryRepository, 
-            IProductSpecificationRepository productSpecificationRepository)
+            IProductCategoryRepository productCategoryRepository)
         {
             _producerRepository = producerRepository;
             _productCategoryRepository = productCategoryRepository;

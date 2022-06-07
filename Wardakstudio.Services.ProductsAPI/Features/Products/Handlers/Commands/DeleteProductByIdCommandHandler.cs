@@ -2,6 +2,8 @@
 using AutoMapper;
 using Wardakstudio.Services.ProductsAPI.Features.Products.Requests.Commands;
 using Wardakstudio.Services.ProductsAPI.Repository;
+using Wardakstudio.Services.ProductsAPI.Exceptions;
+using Wardakstudio.Services.ProductsAPI.Models;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Commands
 {
@@ -18,7 +20,12 @@ namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Commands
 
         public async Task<Unit> Handle(DeleteProductByIdCommand command, CancellationToken cancellation)
         {
-            await _repository.DeleteById(command.Id);
+            var productToDelete = await _repository.GetById(command.Id);
+
+            if (productToDelete == null)
+                throw new NotFoundException(nameof(Product), command.Id);
+
+            await _repository.Delete(productToDelete);
 
             return Unit.Value;
         }

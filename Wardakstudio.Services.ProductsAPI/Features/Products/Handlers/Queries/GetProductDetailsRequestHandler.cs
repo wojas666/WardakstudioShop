@@ -3,6 +3,8 @@ using AutoMapper;
 using Wardakstudio.Services.ProductsAPI.Features.Products.Requests.Queries;
 using Wardakstudio.Services.ProductsAPI.Repository;
 using Wardakstudio.Services.ProductsAPI.Models.Dtos.Product;
+using Wardakstudio.Services.ProductsAPI.Exceptions;
+using Wardakstudio.Services.ProductsAPI.Models;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Queries
 {
@@ -20,6 +22,9 @@ namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Queries
         public async Task<ProductDto> Handle(GetProductDetailsRequest request, CancellationToken cancellation)
         {
             var productDetails = await _repository.GetById(request.Id);
+
+            if (productDetails == null)
+                throw new NotFoundException(nameof(Product), request.Id);
 
             return _mapper.Map<ProductDto>(productDetails);
         }

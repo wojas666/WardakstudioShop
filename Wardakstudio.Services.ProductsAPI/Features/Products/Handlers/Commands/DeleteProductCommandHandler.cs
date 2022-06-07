@@ -4,6 +4,7 @@ using Wardakstudio.Services.ProductsAPI.Features.Products.Requests.Commands;
 using Wardakstudio.Services.ProductsAPI.Repository;
 using Wardakstudio.Services.ProductsAPI.Models.Dtos.Product;
 using Wardakstudio.Services.ProductsAPI.Models;
+using Wardakstudio.Services.ProductsAPI.Exceptions;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Commands
 {
