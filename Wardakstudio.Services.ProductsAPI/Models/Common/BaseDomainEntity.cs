@@ -11,6 +11,8 @@ namespace Wardakstudio.Services.ProductsAPI.Models.Common
 
         public string CreatedBy { get; set; }
 
+        public DateTime LastDateModified { get; set; }
+
         public string ModifiedBy { get; set; }
     }
 }

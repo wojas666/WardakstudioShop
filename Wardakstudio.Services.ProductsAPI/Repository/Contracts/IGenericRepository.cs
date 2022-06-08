@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Wardakstudio.Services.ProductsAPI.Repository
+namespace Wardakstudio.Services.ProductsAPI.Repository.Contracts
 {
     public interface IGenericRepository<T> where T : class
     {
@@ -10,11 +10,11 @@ namespace Wardakstudio.Services.ProductsAPI.Repository
 
         Task<T> Add(T entity);
 
-        Task<T> Update(T entity);
+        Task Update(T entity);
 
-        Task<bool> Delete(T entity);
+        Task Delete(T entity);
 
-        Task<bool> DeleteById(int id);
+        Task DeleteById(int id);
 
         Task<bool> Exists(int id);
 

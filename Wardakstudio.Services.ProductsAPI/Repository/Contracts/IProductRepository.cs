@@ -1,7 +1,7 @@
 ﻿using Wardakstudio.Services.ProductsAPI.Models;
 using Wardakstudio.Services.ProductsAPI.Models.Dtos.Product;
 
-namespace Wardakstudio.Services.ProductsAPI.Repository
+namespace Wardakstudio.Services.ProductsAPI.Repository.Contracts
 {
     public interface IProductRepository : IGenericRepository<Product>
     {

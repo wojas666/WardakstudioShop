@@ -2,7 +2,7 @@
 using AutoMapper;
 using Wardakstudio.Services.ProductsAPI.Models;
 using Wardakstudio.Services.ProductsAPI.Features.ProductImages.Requests.Commands;
-using Wardakstudio.Services.ProductsAPI.Repository;
+using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.ProductImages.Handlers.Commands
 {

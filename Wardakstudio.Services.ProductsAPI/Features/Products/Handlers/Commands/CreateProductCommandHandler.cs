@@ -2,10 +2,10 @@
 using AutoMapper;
 using Wardakstudio.Services.ProductsAPI.Models;
 using Wardakstudio.Services.ProductsAPI.Features.Products.Requests.Commands;
-using Wardakstudio.Services.ProductsAPI.Repository;
 using Wardakstudio.Services.ProductsAPI.Models.Dtos.Product.Validators;
 using Wardakstudio.Services.ProductsAPI.Exceptions;
 using Wardakstudio.Services.ProductsAPI.Responses;
+using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Commands
 {

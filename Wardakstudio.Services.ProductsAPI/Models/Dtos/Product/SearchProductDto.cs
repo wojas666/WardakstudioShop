@@ -25,7 +25,6 @@ namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.Product
     {
         LowPrice,
         HighPrice,
-        BestRating,
-        MostPopular
+        NewProduct
     }
 }

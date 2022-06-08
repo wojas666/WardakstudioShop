@@ -2,7 +2,7 @@
 using MediatR;
 using Wardakstudio.Services.ProductsAPI.Features.Products.Requests.Queries;
 using Wardakstudio.Services.ProductsAPI.Models.Dtos.Product;
-using Wardakstudio.Services.ProductsAPI.Repository;
+using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Queries
 {

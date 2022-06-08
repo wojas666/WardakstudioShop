@@ -2,7 +2,7 @@
 using MediatR;
 using Wardakstudio.Services.ProductsAPI.Exceptions;
 using Wardakstudio.Services.ProductsAPI.Features.ProductCategories.Requests.Commands;
-using Wardakstudio.Services.ProductsAPI.Repository;
+using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.ProductCategories.Handlers.Commands
 {

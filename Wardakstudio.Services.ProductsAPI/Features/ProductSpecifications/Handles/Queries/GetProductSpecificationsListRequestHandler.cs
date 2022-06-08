@@ -2,7 +2,7 @@
 using AutoMapper;
 using Wardakstudio.Services.ProductsAPI.Features.ProductSpecifications.Requests.Queries;
 using Wardakstudio.Services.ProductsAPI.Models.Dtos.ProductSpecification;
-using Wardakstudio.Services.ProductsAPI.Repository;
+using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.ProductSpecifications.Handles.Queries
 {

@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using AutoMapper;
 using Wardakstudio.Services.ProductsAPI.Features.Producers.Requests.Queries;
-using Wardakstudio.Services.ProductsAPI.Repository;
 using Wardakstudio.Services.ProductsAPI.Models.Dtos.Producer;
+using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.Producers.Handlers.Queries
 {

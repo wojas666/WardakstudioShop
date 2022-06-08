@@ -2,7 +2,7 @@
 using MediatR;
 using Wardakstudio.Services.ProductsAPI.Features.ProductRatings.Requests.Commands;
 using Wardakstudio.Services.ProductsAPI.Models;
-using Wardakstudio.Services.ProductsAPI.Repository;
+using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.ProductRatings.Handlers.Commands
 {

@@ -2,7 +2,7 @@
 using AutoMapper;
 using Wardakstudio.Services.ProductsAPI.Features.ProductRatings.Requests.Queries;
 using Wardakstudio.Services.ProductsAPI.Models.Dtos.ProductRating;
-using Wardakstudio.Services.ProductsAPI.Repository;
+using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.ProductRatings.Handlers.Queries
 {

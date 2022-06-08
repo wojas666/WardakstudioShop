@@ -2,9 +2,9 @@
 using AutoMapper;
 using Wardakstudio.Services.ProductsAPI.Models;
 using Wardakstudio.Services.ProductsAPI.Features.ProductCategories.Requests.Commands;
-using Wardakstudio.Services.ProductsAPI.Repository;
 using Wardakstudio.Services.ProductsAPI.Models.Dtos.ProductCategory.Validators;
 using Wardakstudio.Services.ProductsAPI.Responses;
+using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.ProductCategories.Handlers.Commands
 {

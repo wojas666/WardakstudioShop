@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Wardakstudio.Services.ProductsAPI.Repository;
+using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.Producer.Validators
 {

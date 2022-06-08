@@ -2,9 +2,9 @@
 using AutoMapper;
 using Wardakstudio.Services.ProductsAPI.Models;
 using Wardakstudio.Services.ProductsAPI.Features.ProductImages.Requests;
-using Wardakstudio.Services.ProductsAPI.Repository;
 using Wardakstudio.Services.ProductsAPI.Features.ProductImages.Requests.Queries;
 using Wardakstudio.Services.ProductsAPI.Models.Dtos.ProductImage;
+using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.ProductImages.Handlers.Queries
 {
