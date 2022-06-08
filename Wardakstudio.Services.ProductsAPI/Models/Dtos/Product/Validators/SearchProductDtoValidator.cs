@@ -13,7 +13,6 @@ namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.Product.Validators
         {
             _producerRepository = producerRepository;
             _productCategoryRepository = productCategoryRepository;
-            _productSpecificationRepository = productSpecificationRepository;
 
             RuleForEach(x => x.ProducerIds)
                 .MustAsync(async (id, token) =>

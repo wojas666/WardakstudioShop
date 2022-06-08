@@ -1,6 +1,6 @@
 ﻿namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.ProductCategory
 {
-    public class CreateProductCategoryDto : IProductCategoryDto
+    public interface IProductCategoryDto
     {
         public string CategoryName { get; set; }
 

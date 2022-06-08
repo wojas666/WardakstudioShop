@@ -1,6 +1,8 @@
-﻿namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.Producer
+﻿using Wardakstudio.Services.ProductsAPI.Models.Dtos.Producer.Validators;
+
+namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.Producer
 {
-    public class CreateProducerDto
+    public class CreateProducerDto : IProducerDto
     {
         public string Name { get; set; }
 

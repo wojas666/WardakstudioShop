@@ -5,10 +5,11 @@ using Wardakstudio.Services.ProductsAPI.Features.Products.Requests.Commands;
 using Wardakstudio.Services.ProductsAPI.Repository;
 using Wardakstudio.Services.ProductsAPI.Models.Dtos.Product.Validators;
 using Wardakstudio.Services.ProductsAPI.Exceptions;
+using Wardakstudio.Services.ProductsAPI.Responses;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Commands
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, BaseCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
@@ -26,19 +27,30 @@ namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Commands
             _productCategoryRepository = productCategoryRepository;
         }
 
-        public async Task<int> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+        public async Task<BaseCommandResponse> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
+            var response = new BaseCommandResponse();
+
             var validator = new CreateProductDtoValidator(_producerRepository, _productCategoryRepository);
             var validationResult = await validator.ValidateAsync(request.ProductDto);
 
             if (!validationResult.IsValid)
-                throw new ValidationException(validationResult);
+            {
+                response.Message = "Nie udało się utworzyć produktu.";
+                response.IsSuccess = false;
+                response.Errors = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
+                return response;
+            }
 
             var newProduct = _mapper.Map<Product>(request.ProductDto);
 
             newProduct = await _productRepository.Add(newProduct);
 
-            return newProduct.Id;
+            response.IsSuccess = true;
+            response.Message = "Produkt utworzono pomyślnie";
+            response.Id =  newProduct.Id;
+
+            return response;
         }
     }
 }
