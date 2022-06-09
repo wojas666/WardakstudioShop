@@ -5,6 +5,8 @@ namespace Wardakstudio.Services.ProductsAPI.Models
 {
     public class ProductSpecificationDetail : BaseDomainEntity
     {
+        public int ProductSpecificationCategoryId { get; set; }
+
         [Required]
         public ProductSpecificationCategory ProductSpecificationCategory { get; set; }
 

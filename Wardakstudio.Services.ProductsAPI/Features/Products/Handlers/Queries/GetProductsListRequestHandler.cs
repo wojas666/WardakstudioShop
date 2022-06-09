@@ -6,12 +6,12 @@ using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Queries
 {
-    public class GetProductListRequestHandler : IRequestHandler<GetProductsListRequest, List<ProductDto>>
+    public class GetProductsListRequestHandler : IRequestHandler<GetProductsListRequest, List<ProductDto>>
     {
         private readonly IMapper _mapper;
         private readonly IProductRepository _repository;
 
-        public GetProductListRequestHandler(IMapper mapper, IProductRepository repository)
+        public GetProductsListRequestHandler(IMapper mapper, IProductRepository repository)
         {
             _mapper = mapper;
             _repository = repository;

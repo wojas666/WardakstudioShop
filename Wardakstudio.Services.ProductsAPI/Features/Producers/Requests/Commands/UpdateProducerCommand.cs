@@ -5,6 +5,6 @@ namespace Wardakstudio.Services.ProductsAPI.Features.Producers.Requests.Commands
 {
     public class UpdateProducerCommand : IRequest
     {
-        public ProducerDto ProducerToUpdate { get; set; }
+        public UpdateProducerDto ProducerToUpdate { get; set; }
     }
 }

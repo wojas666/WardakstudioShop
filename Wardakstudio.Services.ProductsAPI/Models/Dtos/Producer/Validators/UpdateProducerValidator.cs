@@ -3,7 +3,7 @@ using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.Producer.Validators
 {
-    public class UpdateProducerValidator : AbstractValidator<ProducerDto>
+    public class UpdateProducerValidator : AbstractValidator<UpdateProducerDto>
     {
         private readonly IProducerRepository _producerRepository;
 

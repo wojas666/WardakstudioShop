@@ -7,7 +7,7 @@ namespace Wardakstudio.Services.ProductsAPI.Features.Products.Requests.Commands
     {
         public int ProductId { get; set; }
 
-        public ProductDto ProductToUpdate { get; set; }
+        public UpdateProductDto ProductToUpdate { get; set; }
 
         public ChangeProductPublishedStatusDto ChangeProductPublishedStatusDto { get; set; }
     }

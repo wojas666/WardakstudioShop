@@ -1,9 +1,8 @@
 ﻿using MediatR;
 using AutoMapper;
 using Wardakstudio.Services.ProductsAPI.Features.Products.Requests.Commands;
-using Wardakstudio.Services.ProductsAPI.Models.Dtos.Product;
-using Wardakstudio.Services.ProductsAPI.Models;
 using Wardakstudio.Services.ProductsAPI.Exceptions;
+using Wardakstudio.Services.ProductsAPI.Models;
 using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
 namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Commands
@@ -19,9 +18,12 @@ namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Commands
             _repository = repository;
         }
 
-        public async Task<Unit> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteProductCommand command, CancellationToken cancellation)
         {
-            var productToDelete = _mapper.Map<Product>(request.Product);
+            var productToDelete = await _repository.GetById(command.Id);
+
+            if (productToDelete == null)
+                throw new NotFoundException(nameof(Product), command.Id);
 
             await _repository.Delete(productToDelete);
 

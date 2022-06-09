@@ -15,6 +15,16 @@ namespace Wardakstudio.Services.ProductsAPI.DbContexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+
+            modelBuilder.Entity<ProductSpecification>()
+                .HasOne(e => e.ProductSpecificationCategory)
+                .WithMany()
+                .OnDelete(DeleteBehavior.Restrict); 
+
+            modelBuilder.Entity<ProductSpecification>()
+                .HasOne(e => e.ProductSpecificationDetails)
+                .WithMany()
+                .OnDelete(DeleteBehavior.Restrict);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
