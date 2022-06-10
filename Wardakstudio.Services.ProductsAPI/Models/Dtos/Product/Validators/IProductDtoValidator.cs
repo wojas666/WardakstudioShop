@@ -27,16 +27,16 @@ namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.Product.Validators
                 .MustAsync(async (id, token) =>
                 {
                     var producerExist = await _producerRepository.Exists(id);
-                    return !producerExist;
-                }).WithMessage("Podany producent nie isnieje.");
+                    return producerExist;
+                }).WithMessage("Producent o podanym {PropertyName} nie istnieje.");
 
             RuleFor(x => x.ProductCategoryId)
                 .GreaterThan(0)
                 .MustAsync(async (id, token) =>
                 {
                     var productCategoryExist = await _productCategoryRepository.Exists(id);
-                    return !productCategoryExist;
-                });
+                    return productCategoryExist;
+                }).WithMessage("Kategoria o podanym {PropertyName} nie istnieje.");
 
             RuleFor(x => x.Description)
                 .MinimumLength(50).WithMessage("Opis produktu nie może być krótszy niż {ComparisonValue} znaków.")

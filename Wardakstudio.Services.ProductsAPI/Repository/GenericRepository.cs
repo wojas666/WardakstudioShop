@@ -13,9 +13,9 @@ namespace Wardakstudio.Services.ProductsAPI.Repository
             _dbContext = dbContext;
         }
 
-        public async Task<T> Add(T entity)
+        public virtual async Task<T> Add(T entity)
         {
-            await _dbContext.AddAsync(entity);
+            await _dbContext.Set<T>().AddAsync(entity);
             await _dbContext.SaveChangesAsync();
             return entity;
         }
@@ -55,7 +55,7 @@ namespace Wardakstudio.Services.ProductsAPI.Repository
             return await _dbContext.Set<T>().FindAsync(id);
         }
 
-        public async Task Update(T entity)
+        public virtual async Task Update(T entity)
         {
             _dbContext.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
 

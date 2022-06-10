@@ -8,7 +8,7 @@ namespace Wardakstudio.Services.ProductsAPI.Models
         public int ProductSpecificationCategoryId { get; set; }
 
         [Required]
-        public ProductSpecificationCategory ProductSpecificationCategory { get; set; }
+        public virtual ProductSpecificationCategory ProductSpecificationCategory { get; set; }
 
         [Required]
         public string Name { get; set; }

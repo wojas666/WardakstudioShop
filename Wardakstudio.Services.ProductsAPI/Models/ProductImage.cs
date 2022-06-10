@@ -9,8 +9,10 @@ namespace Wardakstudio.Services.ProductsAPI.Models
         [DataType(DataType.Url)]
         public string ImageUrl { get; set; }
 
+        public int ProductId { get; set; }
+
         [Required]
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
 
         public bool IsBase { get; set; }
 

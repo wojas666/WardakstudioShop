@@ -16,7 +16,9 @@ namespace Wardakstudio.Services.ProductsAPI.Models
 
         public string Description { get; set; }
 
-        public Product Product { get; set; }
+        public int ProductId { get; set; }
+
+        public virtual Product Product { get; set; }
 
         public DateTime RatingDate { get; set; }
 

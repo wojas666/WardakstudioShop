@@ -7,8 +7,10 @@ namespace Wardakstudio.Services.ProductsAPI.Features.ProductImages.Requests.Comm
     {
         public int ProductImageId { get; set; }
 
-        public ProductImageDto ImageToUpdate { get; set; }
+        public UpdateProductImageDto ImageToUpdate { get; set; }
 
-        public ChangeProductImagePublishedStatusDto ChangeProductPublishedStatusDto { get; set; }
+        public ChangeProductImagePublishedStatusDto ChangeProductImagePublishedStatusDto { get; set; }
+
+        public ChangeBaseProductImageDto ChangeBaseProductImageDto { get; set; }
     }
 }

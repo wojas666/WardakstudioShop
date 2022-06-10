@@ -37,7 +37,7 @@ namespace Wardakstudio.Services.ProductsAPI.Features.Products.Handlers.Commands
 
             if (request.ProductToUpdate is not null)
             {
-                var validator = new ProductDtoValidator(_producerRepository, _productCategoryRepository);
+                var validator = new UpdateProductDtoValidator(_producerRepository, _productCategoryRepository);
                 var validationResult = await validator.ValidateAsync(request.ProductToUpdate);
 
                 if (!validationResult.IsValid)

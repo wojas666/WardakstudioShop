@@ -18,9 +18,9 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastDateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -37,9 +37,9 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                     CategoryUrlSeo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ParentCategoryId = table.Column<int>(type: "int", nullable: true),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastDateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -60,9 +60,9 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastDateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -83,9 +83,9 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                     ProducerId = table.Column<int>(type: "int", nullable: false),
                     IsPublished = table.Column<bool>(type: "bit", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastDateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -113,9 +113,9 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                     ProductSpecificationCategoryId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastDateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -139,9 +139,9 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                     IsBase = table.Column<bool>(type: "bit", nullable: false),
                     IsPublish = table.Column<bool>(type: "bit", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastDateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -162,11 +162,11 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     ProductSpecificationCategoryId = table.Column<int>(type: "int", nullable: false),
-                    ProductSpecificationDetailsId = table.Column<int>(type: "int", nullable: false),
+                    ProductSpecificationDetailId = table.Column<int>(type: "int", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastDateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -184,8 +184,8 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ProductSpecifications_ProductSpecificationDetails_ProductSpecificationDetailsId",
-                        column: x => x.ProductSpecificationDetailsId,
+                        name: "FK_ProductSpecifications_ProductSpecificationDetails_ProductSpecificationDetailId",
+                        column: x => x.ProductSpecificationDetailId,
                         principalTable: "ProductSpecificationDetails",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -227,9 +227,9 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                 column: "ProductSpecificationCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductSpecifications_ProductSpecificationDetailsId",
+                name: "IX_ProductSpecifications_ProductSpecificationDetailId",
                 table: "ProductSpecifications",
-                column: "ProductSpecificationDetailsId");
+                column: "ProductSpecificationDetailId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

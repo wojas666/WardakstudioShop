@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using Wardakstudio.Services.ProductsAPI.Exceptions;
 using Wardakstudio.Services.ProductsAPI.Features.ProductImages.Requests.Queries;
+using Wardakstudio.Services.ProductsAPI.Models;
 using Wardakstudio.Services.ProductsAPI.Models.Dtos.ProductImage;
 using Wardakstudio.Services.ProductsAPI.Repository.Contracts;
 
@@ -20,6 +22,9 @@ namespace Wardakstudio.Services.ProductsAPI.Features.ProductImages.Handlers.Quer
         public async Task<ProductImageDto> Handle(GetBaseProductImageRequest request, CancellationToken cancellation)
         {
             var baseImageForProduct = await _repository.GetBaseProductImageForProduct(request.ProductId);
+
+            if (baseImageForProduct == null)
+                throw new NotFoundException(nameof(ProductImage), request.ProductId);
 
             return _mapper.Map<ProductImageDto>(baseImageForProduct);
         }

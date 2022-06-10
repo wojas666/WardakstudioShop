@@ -27,6 +27,7 @@
     <Folder Include="Features\ProductSpecificationCategories\Requests\Queries\" />
     <Folder Include="Features\ProductSpecificationDetails\Handles\Queries\" />
     <Folder Include="Features\ProductSpecificationDetails\Requests\Queries\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

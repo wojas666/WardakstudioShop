@@ -1,8 +1,8 @@
-﻿using Wardakstudio.Services.ProductsAPI.Models.Dtos.Product;
+﻿using Wardakstudio.Services.ProductsAPI.Models.Dtos.Common;
 
 namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.ProductImage
 {
-    public class CreateProductImageDto : IProductImageDto
+    public class UpdateProductImageDto : BaseDto, IProductImageDto
     {
         public string ImageUrl { get; set; }
 
@@ -11,6 +11,5 @@ namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.ProductImage
         public bool IsBase { get; set; }
 
         public bool IsPublished { get; set; }
-
     }
 }

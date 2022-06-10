@@ -10,6 +10,6 @@ namespace Wardakstudio.Services.ProductsAPI.Models
 
         public string Description { get; set; }
 
-        public ICollection<ProductSpecificationDetail> ProductSpecificationDetails { get; set; }
+        public virtual ICollection<ProductSpecificationDetail> ProductSpecificationDetails { get; set; }
     }
 }

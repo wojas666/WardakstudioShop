@@ -6,6 +6,6 @@
 
         public string CategoryUrlSeo { get; set; }
 
-        public int? ParentCategoryId { get; set; }
+        public int? ParentCategoryId { get; set; } = null;
     }
 }

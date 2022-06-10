@@ -12,7 +12,7 @@ using Wardakstudio.Services.ProductsAPI.DbContexts;
 namespace Wardakstudio.Services.ProductsAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220609112837_InitialCreation")]
+    [Migration("20220610105132_InitialCreation")]
     partial class InitialCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,7 +33,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateCreated")
@@ -47,7 +46,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -71,7 +69,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateCreated")
@@ -88,7 +85,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -130,7 +126,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateCreated")
@@ -140,7 +135,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ParentCategoryId")
@@ -162,7 +156,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateCreated")
@@ -182,7 +175,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
@@ -204,7 +196,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateCreated")
@@ -214,7 +205,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
@@ -223,7 +213,7 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                     b.Property<int>("ProductSpecificationCategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductSpecificationDetailsId")
+                    b.Property<int>("ProductSpecificationDetailId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -232,7 +222,7 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
 
                     b.HasIndex("ProductSpecificationCategoryId");
 
-                    b.HasIndex("ProductSpecificationDetailsId");
+                    b.HasIndex("ProductSpecificationDetailId");
 
                     b.ToTable("ProductSpecifications");
                 });
@@ -246,7 +236,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateCreated")
@@ -260,7 +249,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -281,7 +269,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateCreated")
@@ -291,7 +278,6 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -330,7 +316,7 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
             modelBuilder.Entity("Wardakstudio.Services.ProductsAPI.Models.ProductCategory", b =>
                 {
                     b.HasOne("Wardakstudio.Services.ProductsAPI.Models.ProductCategory", "ParentCategory")
-                        .WithMany()
+                        .WithMany("Children")
                         .HasForeignKey("ParentCategoryId");
 
                     b.Navigation("ParentCategory");
@@ -363,7 +349,7 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
 
                     b.HasOne("Wardakstudio.Services.ProductsAPI.Models.ProductSpecificationDetail", "ProductSpecificationDetails")
                         .WithMany()
-                        .HasForeignKey("ProductSpecificationDetailsId")
+                        .HasForeignKey("ProductSpecificationDetailId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -399,6 +385,8 @@ namespace Wardakstudio.Services.ProductsAPI.Migrations
 
             modelBuilder.Entity("Wardakstudio.Services.ProductsAPI.Models.ProductCategory", b =>
                 {
+                    b.Navigation("Children");
+
                     b.Navigation("Products");
                 });
 

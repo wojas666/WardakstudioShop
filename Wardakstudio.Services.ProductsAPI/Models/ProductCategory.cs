@@ -11,7 +11,11 @@ namespace Wardakstudio.Services.ProductsAPI.Models
         [Required]
         public string CategoryUrlSeo { get; set; }
 
-        public ProductCategory? ParentCategory { get; set; }
+        public virtual ICollection<ProductCategory> Children { get; set; }
+
+        public int? ParentCategoryId { get; set; }
+
+        public virtual ProductCategory ParentCategory { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
 

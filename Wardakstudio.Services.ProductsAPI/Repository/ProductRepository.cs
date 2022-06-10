@@ -15,6 +15,12 @@ namespace Wardakstudio.Services.ProductsAPI.Repository
             _dbContext = dbContext;
         }
 
+        public override Task<Product> Add(Product entity)
+        {
+
+            return base.Add(entity);
+        }
+
         public async Task ChangeProductPublishedStatus(Product product, bool? isPublished)
         {
             product.IsPublished = isPublished == null ? false : (bool)isPublished;

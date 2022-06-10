@@ -14,9 +14,13 @@ namespace Wardakstudio.Services.ProductsAPI.Models
 
         public int AvailableQuantity { get; set; }
 
-        public ProductCategory ProductCategory { get; set; }
+        public int ProductCategoryId { get; set; }
 
-        public Producer Producer { get; set; }
+        public virtual ProductCategory ProductCategory { get; set; }
+
+        public int ProducerId { get; set; }
+
+        public virtual Producer Producer { get; set; }
 
         public virtual ICollection<ProductImage> ProductImages { get; set; }
 

@@ -10,5 +10,7 @@ namespace Wardakstudio.Services.ProductsAPI.Repository.Contracts
         Task<ProductImage?> GetBaseProductImageForProduct(int productId);
 
         Task ChangeProductImagePublishedStatus(ProductImage product, bool? isPublished);
+
+        Task ChangeBaseProductImage(ProductImage productImage, bool? isBase);
     }
 }
