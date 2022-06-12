@@ -26,7 +26,7 @@ namespace Wardakstudio.Services.ProductsAPI.Features.Producers.Handlers.Commands
 
             if(!validationResult.IsValid)
             {
-                throw new NotFoundException(nameof(Producer), request.ProducerToUpdate.Id);
+                throw new ValidationException(validationResult);
             }
 
             var producerToUpdate = _mapper.Map<Producer>(request.ProducerToUpdate);

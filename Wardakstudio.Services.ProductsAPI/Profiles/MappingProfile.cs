@@ -39,6 +39,8 @@ namespace Wardakstudio.Services.ProductsAPI.Profiles
             #region Producer
             CreateMap<Producer, ProducerDto>().ReverseMap();
             CreateMap<Producer, CreateProducerDto>().ReverseMap();
+            CreateMap<Producer, UpdateProducerDto>().ReverseMap();
+
             #endregion
 
             #region ProductSpecification
