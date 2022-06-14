@@ -18,7 +18,7 @@ namespace Wardakstudio.Services.ProductsAPI.Models.Dtos.Producer.Validators
                 .MustAsync(async (id, token) =>
                 {
                     var producerExist = await _producerRepository.Exists(id);
-                    return !producerExist;
+                    return producerExist;
                 }).WithMessage("{PropertyName} does not correspond to any record in the 'Producers' table.");
         }
     }

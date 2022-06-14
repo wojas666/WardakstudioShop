@@ -29,7 +29,7 @@ namespace Wardakstudio.Services.ProductsAPI.UnitTests.Producers.Commands
 
         public CreateProducerCommandHandlerTests()
         {
-            _mockRepository = MockProducerRepository.GetProducerRepository();
+            _mockRepository = MockIProducerRepository.GetProducerRepository();
 
             var mapperConfiguration = new MapperConfiguration(config =>
             {

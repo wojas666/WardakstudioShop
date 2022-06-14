@@ -22,7 +22,7 @@ namespace Wardakstudio.Services.ProductsAPI.UnitTests.Producers.Queries
 
         public GetProducerListRequestHandlerTests()
         {
-            _mockRepo = MockProducerRepository.GetProducerRepository();
+            _mockRepo = MockIProducerRepository.GetProducerRepository();
 
             var mapperConfig = new MapperConfiguration(c =>
             {
@@ -33,7 +33,7 @@ namespace Wardakstudio.Services.ProductsAPI.UnitTests.Producers.Queries
         }
 
         [Fact]
-        public async Task If_we_send_a_query_for_the_number_of_records_in_the_company_table_Returns_list_of_ProducerDto_and_count_three()
+        public async Task If_we_ask_for_all_records_in_the_producers_table_Returns_list_of_ProducerDto_and_count_three()
         {
             var handler = new GetProducersListRequestHandler(_mockRepo.Object, _mapper);
 

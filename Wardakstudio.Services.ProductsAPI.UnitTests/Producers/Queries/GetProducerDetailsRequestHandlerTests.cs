@@ -24,7 +24,7 @@ namespace Wardakstudio.Services.ProductsAPI.UnitTests.Producers.Queries
         
         public GetProducerDetailsRequestHandlerTests()
         {
-            _repository = MockProducerRepository.GetProducerRepository();
+            _repository = MockIProducerRepository.GetProducerRepository();
 
             var mapperConfig = new MapperConfiguration(x =>
             {

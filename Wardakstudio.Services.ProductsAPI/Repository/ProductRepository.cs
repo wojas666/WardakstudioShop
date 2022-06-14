@@ -41,7 +41,7 @@ namespace Wardakstudio.Services.ProductsAPI.Repository
 
             if (searchProductDto.ProductCategoryIds != null)
                 searchedProducts = searchedProducts.Where(x => searchProductDto.ProductCategoryIds
-                .Any(y => y == x.ProductCategory.Id));
+                .Any(y => y == x.ProductCategoryId));
 
             if (searchProductDto.MinPrice != null)
                 searchedProducts = searchedProducts.Where(x => x.Price >= searchProductDto.MinPrice);
@@ -51,7 +51,7 @@ namespace Wardakstudio.Services.ProductsAPI.Repository
 
             if(searchProductDto.ProducerIds != null)
                 searchedProducts = searchedProducts.Where(x => searchProductDto.ProducerIds
-                .Any(y => y == x.Producer.Id));
+                .Any(y => y == x.ProductCategoryId));
 
             switch (searchProductDto.SortType)
             {

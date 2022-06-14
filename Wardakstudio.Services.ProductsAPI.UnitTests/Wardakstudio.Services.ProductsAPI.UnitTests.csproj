@@ -27,4 +27,8 @@
     <ProjectReference Include="..\Wardakstudio.Services.ProductsAPI\Wardakstudio.Services.ProductsAPI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Products\Command\" />
+  </ItemGroup>
+
 </Project>

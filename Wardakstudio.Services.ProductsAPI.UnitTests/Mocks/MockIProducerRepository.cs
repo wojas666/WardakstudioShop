@@ -9,7 +9,7 @@ using Wardakstudio.Services.ProductsAPI.Models;
 
 namespace Wardakstudio.Services.ProductsAPI.UnitTests.Mocks
 {
-    public static class MockProducerRepository
+    public static class MockIProducerRepository
     {
         public static Mock<IProducerRepository> GetProducerRepository()
         {
@@ -48,6 +48,12 @@ namespace Wardakstudio.Services.ProductsAPI.UnitTests.Mocks
             {
                 producers.Add(producer);
                 return producer;
+            });
+            mockRepo.Setup(x => x.Exists(It.IsAny<int>())).ReturnsAsync((int id) =>
+            {
+                var producer = producers.FirstOrDefault(y => y.Id == id);
+
+                return producer != null ? true : false;
             });
 
             return mockRepo;
